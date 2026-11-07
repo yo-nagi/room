@@ -1,0 +1,570 @@
+@charset "UTF-8";
+
+html {
+	scroll-behavior: smooth;
+	/* ナビゲーションをクリックしたときに滑らかにスクロール */
+}
+
+/* ==========================================================================
+   1. 全体の共通設定
+   ========================================================================== */
+
+
+body {
+	background-color: #111111;
+	color: #ffffff;
+	font-family: 'Noto Serif JP', 'Shippori Mincho', serif;
+	line-height: 1.8;
+	letter-spacing: 0.05em;
+}
+
+.container {
+	display: flex;
+	width: 100%;
+}
+
+/* ==========================================================================
+   ★ 画像ボックスの共通デザイン（ダミー用の背景や点線をきれいに削除）
+   ========================================================================== */
+.image-box {
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	font-size: 14px;
+	text-align: center;
+	transition: all 0.3s ease;
+}
+
+/* ==========================================================================
+   2. 左側：コンテンツエリア
+   ========================================================================== */
+.left-content {
+	width: 50%;
+	padding: 0 80px 120px 120px;
+	/* 💡上側のpaddingを0にしてヘッダーの固定位置と調整 */
+}
+
+.left-content section,
+.left-content footer {
+	margin-bottom: 0;
+}
+
+/* 🧭 ロゴとナビゲーションのヘッダー（上部固定・横並び・重複を削除） */
+.site-header {
+	display: flex;
+	justify-content: space-between;
+	/* ロゴは左、メニューは右に振り分ける */
+	align-items: center;
+	/* 上下の中心を揃える */
+	position: sticky;
+	top: 0;
+	background-color: #111111;
+	/* スクロールした時に下の文字が透けないように背景を黒にする */
+	padding: 30px 0;
+	/* 固定された時の上下の心地よい余白 */
+	margin-bottom: 120px;
+	z-index: 100;
+	/* テキストや画像より必ず手前に表示させる */
+	/* 💡 追加：画面が狭くなったら折り返せるようにしておく */
+	flex-wrap: wrap;
+	gap: 20px;
+}
+
+/* ロゴ自体のデザイン */
+.logo {
+	font-size: 18px;
+	letter-spacing: 0.2em;
+	color: #e5c384;
+}
+
+/* nav {
+	margin-left: 60px;
+} */
+
+/* 🧭 ナビゲーション（縦並びを横並びに変える ＆ 点を消す） */
+.site-nav ul {
+	display: flex;
+	/* 子要素（li）を横並びにする */
+	gap: 30px;
+	/* メニュー文字同士の間隔 */
+	list-style: none;
+	/* 項目左の黒丸（点）を完全に消す */
+}
+
+/* 🧭 リンクのデザイン（下線消去・青色からリセット） */
+.site-nav a {
+	text-decoration: none;
+	/* リンクの下線を完全に消す */
+	color: #cccccc;
+	/* 初期状態の文字色（落ち着いたライトグレー） */
+	font-size: 13px;
+	/* メニュー文字の大きさ */
+	letter-spacing: 0.15em;
+	/* 文字の間隔を少し広げて洗練された印象に */
+	transition: color 0.3s ease;
+	/* マウスを乗せた時の色変化を滑らかにする */
+}
+
+/* 🧭 マウスを乗せた（ホバーした）ときの色 */
+.site-nav a:hover {
+	color: #e5c384;
+	/* ロゴと同じシャンパンゴールドに光らせる */
+}
+
+
+
+.hero {
+	min-height: calc(100vh - 100px);
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	/* 💡 中央ではなく、上揃えに変更 */
+	align-items: flex-start;
+
+	/* ★ ここの数値でお好みの高さに微調整してください */
+	padding-top: 15vh;
+	/* 💡 画面の高さの15%分、上から空ける（中央より上になります） */
+}
+
+/* 見出し・テキスト */
+.hero h1 {
+	font-size: 38px;
+	line-height: 1.6;
+	margin-top: 0;
+}
+
+h3 {
+	font-size: 20px;
+	margin-bottom: 15px;
+}
+
+p {
+	font-size: 15px;
+	color: #cccccc;
+	margin-bottom: 24px;
+	letter-spacing: 0.08em;
+
+	/* --- ここを追加・修正 --- */
+	line-height: 1.8;
+	word-wrap: break-word;
+	/* 長い英単語の折り返しを強制 */
+	overflow-wrap: break-word;
+	/* 最近のブラウザ推奨の設定 */
+	word-break: auto-phrase;
+	/* 日本語の自然な改行位置を優先する設定 */
+}
+
+/* 各セクションのメイン見出し（h2）の下に余白を作る */
+.left-content h2 {
+	margin-bottom: 40px;
+	/* 💡30px〜40pxほど空けると、一気にプロっぽい抜け感が出ます */
+	font-size: 24px;
+	/* もしサイズも調整したい場合はここで */
+	letter-spacing: 0.15em;
+	/* アルファベットの文字間隔を少し広げて上品に */
+}
+
+
+/* ★左側セクション内の画像枠（横幅いっぱい×縦300px） */
+.left-section-img1 {
+	background-image: url("../images/about_hop.jpg");
+	width: 100%;
+	height: 300px;
+	margin-top: 40px;
+
+	background-size: cover;
+	/* 💡画像を枠いっぱいに、綺麗に引き伸ばして表示する */
+	background-position: center;
+	/* 💡画像の中央が枠の真ん中に来るようにする */
+	background-repeat: no-repeat;
+	/* 💡画像が小さかったとしても、リピート（タイル並び）させない */
+
+}
+
+.left-section-img2 {
+	background-image: url("../images/scene_heya.jpg");
+	width: 100%;
+	height: 300px;
+	margin-top: 40px;
+
+	background-size: cover;
+	/* 💡画像を枠いっぱいに、綺麗に引き伸ばして表示する */
+	background-position: center;
+	/* 💡画像の中央が枠の真ん中に来るようにする */
+	background-repeat: no-repeat;
+	/* 💡画像が小さかったとしても、リピート（タイル並び）させない */
+
+}
+
+/* ★ギャラリー（縦に並ぶ画像枠） */
+.gallery-list {
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+	margin-bottom: 40px;
+}
+
+.gallery-img1 {
+	background-image: url("../images/gallery_music.jpg");
+	width: 100%;
+	height: 450px;
+	/* 縦長でおしゃれな写真が入る想定 */
+
+	background-size: cover;
+	/* 💡 枠いっぱいに画像を自動で拡大縮小してフィットさせる */
+	background-position: center;
+	/* 💡 画像の中心がいつも真ん中に来るようにする（顔やメインが切れない） */
+	background-repeat: no-repeat;
+	/* 💡 画像が小さくてもタイル状にリピートされるのを防ぐ */
+}
+
+.gallery-img2 {
+	background-image: url("../images/gallery_recip.jpg");
+	width: 100%;
+	height: 450px;
+	/* 縦長でおしゃれな写真が入る想定 */
+
+	background-size: cover;
+	/* 💡 枠いっぱいに画像を自動で拡大縮小してフィットさせる */
+	background-position: center;
+	/* 💡 画像の中心がいつも真ん中に来るようにする（顔やメインが切れない） */
+	background-repeat: no-repeat;
+	/* 💡 画像が小さくてもタイル状にリピートされるのを防ぐ */
+}
+
+.gallery-img3 {
+	background-image: url("../images/gallery_glass.jpg");
+	width: 100%;
+	height: 450px;
+	/* 縦長でおしゃれな写真が入る想定 */
+
+	background-size: cover;
+	/* 💡 枠いっぱいに画像を自動で拡大縮小してフィットさせる */
+	background-position: center;
+	/* 💡 画像の中心がいつも真ん中に来るようにする（顔やメインが切れない） */
+	background-repeat: no-repeat;
+	/* 💡 画像が小さくてもタイル状にリピートされるのを防ぐ */
+}
+
+/* ブランドメッセージセクションの調整 */
+.brand-closing-message {
+	text-align: center;
+	/* 中央揃え */
+	padding: 80px 0 40px;
+	/* ギャラリー下部とCONTACT上部への余白 */
+}
+
+/* 英語のサブテキスト */
+.brand-closing-message .en-sub {
+	font-size: 14px;
+	font-family: 'Times New Roman', serif;
+	/* 上品なセリフ体（明朝系）に */
+	letter-spacing: 0.15em;
+	/* 文字の間隔を少し広げてモダンに */
+	color: #888888;
+	/* 少し控えめなグレー */
+	margin-bottom: 12px;
+	/* 日本語との間隔 */
+	text-transform: uppercase;
+	/* 必要に応じて大文字に（CHEERS TO YOUR DAY.） */
+}
+
+/* 日本語メインメッセージ */
+.brand-closing-message .ja-main {
+	font-size: 18px;
+	font-weight: 500;
+	letter-spacing: 0.1em;
+	color: #cccccc;
+	/* 💡 修正：他のテキストと揃えて見えるように */
+	line-height: 1.8;
+}
+
+/* 📄 フッター・会社情報 */
+.company-info {
+	margin-top: 60px;
+	/* お問い合わせ内容から少し離す */
+	border-top: 1px solid #333333;
+	/* 上にうっすら境界線を入れる */
+	padding-top: 40px;
+}
+
+.company-name {
+	font-size: 13px;
+	color: #cccccc;
+	margin-bottom: 10px;
+}
+
+/* プライバシーポリシーのリンク */
+.policy-link {
+	margin-bottom: 15px;
+}
+
+.policy-link {
+	font-size: 11px;
+	color: #888888;
+	text-decoration: none;
+	transition: color 0.3s;
+}
+
+
+
+.copyright {
+	font-size: 10px;
+	color: #666666;
+}
+
+/* ==========================================================================
+   3. 右側：スクロールで6枚切り替わる固定エリア（魔法の仕掛け）
+   ========================================================================== */
+.right-visual-container {
+	width: 50%;
+	position: relative;
+}
+
+.sticky-image-wrapper {
+	width: 100%;
+	height: 100vh;
+	position: sticky;
+	top: 0;
+}
+
+.right-bg-box {
+	width: 100%;
+	height: 115vh;
+
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	border: none;
+}
+
+/* 6枚の画像設定 */
+.bg-1 {
+	background-image: url("../images/light_beer1.jpg");
+}
+
+.bg-2 {
+	background-image: url("../images/light_beer5.jpg");
+}
+
+.bg-3 {
+	background-image: url("../images/light_beer3.jpg");
+}
+
+.bg-4 {
+	background-image: url("../images/light_beer2.jpg");
+}
+
+.bg-5 {
+	background-image: url("../images/light_beer4.jpg");
+}
+
+.bg-6 {
+	background-image: url("../images/light_beer6.jpg");
+}
+
+section[id],
+footer[id] {
+	scroll-margin-top: 112px;
+}
+
+.sticky-image-wrapper:nth-child(1) {
+	z-index: 1;
+}
+
+.sticky-image-wrapper:nth-child(2) {
+	z-index: 2;
+}
+
+.sticky-image-wrapper:nth-child(3) {
+	z-index: 3;
+}
+
+.sticky-image-wrapper:nth-child(4) {
+	z-index: 4;
+}
+
+.sticky-image-wrapper:nth-child(5) {
+	z-index: 5;
+}
+
+.sticky-image-wrapper:nth-child(6) {
+	z-index: 6;
+}
+
+/* 各セクションの基本高さ設定 */
+.about,
+.features,
+.scene,
+.contact {
+	min-height: 100vh;
+}
+
+
+
+.gallery {
+	padding-bottom: 100px;
+}
+
+/* ⚠️ PC環境ではハンバーガーボタンを絶対に隠す設定（ここで指定しておきます） */
+.hamburger-btn {
+	display: none;
+}
+
+
+
+
+/* ==========================================================================
+   4. スマートフォン・タブレット対応（レスポンシブ完全版）
+   ========================================================================== */
+@media screen and (max-width: 1024px) {
+
+	/* 左右並びを上下の縦並びに変更 */
+	.container {
+		flex-direction: column;
+	}
+
+	/* 左側コンテンツ（テキストエリア）を幅100%に */
+	.left-content {
+		width: 100%;
+		padding: 0 24px 60px 24px;
+	}
+
+	/* PC版のmin-height: 100vh をスマホ側で打ち消す */
+	.about,
+	.features,
+	.scene,
+	.contact {
+		min-height: auto;
+		margin-bottom: 80px;
+	}
+
+	.hero h1 {
+		font-size: 28px;
+	}
+
+	/* 2. 右側の画像6枚をスマホ用の「横スクロールギャラリー」にする設定 */
+	.right-visual-container {
+		display: flex;
+		/* 💡画像を横並びにする */
+		overflow-x: auto;
+		/* 💡はみ出た分を横スクロールできるようにする */
+		scroll-snap-type: x mandatory;
+		/* 💡スワイプした時にピタッと写真が止まるようにする */
+		width: 100%;
+		position: static;
+		padding: 20px 0 60px;
+		/* 上下に心地よい余白を作る */
+	}
+
+	.sticky-image-wrapper {
+		position: static;
+		flex: 0 0 80%;
+		/* 💡スマホ画面の横幅80%のサイズで1枚ずつ見せる（次の写真がチラッと見える） */
+		height: 45vh;
+		/* 縦に長すぎない絶妙な高さ（45%）に設定 */
+		margin-left: 20px;
+		/* 写真と写真の間の隙間 */
+		scroll-snap-align: center;
+		/* 💡スワイプした時に画面の中央にピタッと止まる */
+	}
+
+	/* 最後の写真の右側にも余白を作る */
+	.sticky-image-wrapper:last-child {
+		margin-right: 20px;
+	}
+
+	.right-bg-box {
+		height: 45vh;
+		border-radius: 4px;
+		/* 写真の角をほんの少し丸めてモダンに */
+	}
+
+	/* PC版の z-index をスマホ側でリセット */
+	.sticky-image-wrapper:nth-child(1),
+	.sticky-image-wrapper:nth-child(2),
+	.sticky-image-wrapper:nth-child(3),
+	.sticky-image-wrapper:nth-child(4),
+	.sticky-image-wrapper:nth-child(5),
+	.sticky-image-wrapper:nth-child(6) {
+		z-index: auto;
+	}
+
+	/* 🍔 ハンバーガーボタンをスマホの時だけ強制表示 */
+	.hamburger-btn {
+		display: block;
+		position: relative;
+		width: 30px;
+		height: 24px;
+		background: none;
+		border: none;
+		cursor: pointer;
+		z-index: 200;
+	}
+
+	.hamburger-btn span {
+		display: block;
+		position: absolute;
+		width: 100%;
+		height: 2px;
+		background-color: #e5c384;
+		transition: all 0.3s ease;
+	}
+
+	.hamburger-btn span:nth-child(1) {
+		top: 0;
+	}
+
+	.hamburger-btn span:nth-child(2) {
+		top: 11px;
+	}
+
+	.hamburger-btn span:nth-child(3) {
+		bottom: 0;
+	}
+
+	/* ボタンがクリックされた時（×印に変形） */
+	.hamburger-btn.active span:nth-child(1) {
+		transform: translateY(11px) rotate(45deg);
+	}
+
+	.hamburger-btn.active span:nth-child(2) {
+		opacity: 0;
+	}
+
+	.hamburger-btn.active span:nth-child(3) {
+		transform: translateY(-11px) rotate(-45deg);
+	}
+
+	/* 🍔 スマホ用の全画面ナビゲーションメニュー */
+	.site-nav {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100vh;
+		background-color: rgba(11, 11, 11, 0.95);
+		z-index: 150;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		transform: translateX(100%);
+		transition: transform 0.4s ease;
+	}
+
+	.site-nav ul {
+		flex-direction: column;
+		align-items: center;
+		gap: 40px;
+	}
+
+	.site-nav a {
+		font-size: 18px;
+	}
+
+	.site-nav.active {
+		transform: translateX(0);
+	}
+}
