@@ -1,0 +1,345 @@
+@charset "UTF-8";
+
+/* =========================
+   全体
+========================= */
+
+.cooking {
+	max-width: 1080px;
+	margin: 0 auto;
+	padding: 120px 20px 160px;
+}
+
+.category {
+	margin-bottom: 120px;
+}
+
+/* =========================
+   タグ
+========================= */
+
+.tag-text {
+	color: #9EC2C7;
+	font-size: 12px;
+	letter-spacing: 0.15em;
+	font-family: "Albert Sans", sans-serif;
+	margin-bottom: 8px;
+}
+
+/* =========================
+   ヘッダー
+========================= */
+
+.cooking-hero {
+	text-align: center;
+	margin-bottom: 80px;
+}
+
+.cooking-hero h1 {
+	font-size: 36px;
+	letter-spacing: 0.15em;
+	margin-bottom: 10px;
+}
+
+.cooking-hero p {
+	font-size: 14px;
+	color: #A59C90;
+}
+
+/* =========================
+   h2タイトル
+========================= */
+
+.cooking-title {
+	position: relative;
+	display: inline-block;
+	font-size: 26px;
+	font-weight: 500;
+	letter-spacing: 0.15em;
+	margin-bottom: 40px;
+	cursor: pointer;
+}
+
+.cooking-title::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: -8px;
+	width: 100%;
+	height: 1px;
+	background: #5A544E;
+	/* transform: scaleX(0);
+	transform-origin: left;
+	transition: transform 0.4s ease; */
+}
+
+.cooking-title:hover::after {
+	transform: scaleX(1);
+}
+
+/* =========================
+   カード
+========================= */
+
+.cooking-card {
+	display: flex;
+	align-items: center;
+	gap: 60px;
+	text-decoration: none;
+	color: inherit;
+	transition: transform 0.3s ease;
+}
+
+.cooking-card:hover {
+	transform: translateY(-5px);
+}
+
+/* テキスト */
+.work-text {
+	width: 40%;
+}
+
+.work-text h3 {
+	font-size: 17px;
+	/* 20pxから少し小さくする */
+	font-weight: 500;
+	margin-bottom: 8px;
+}
+
+.work-text p {
+	font-size: 14px;
+	line-height: 1.8;
+	color: #5A544E;
+	opacity: 0.85;
+}
+
+/* =========================
+   画像ギャラリー
+========================= */
+
+.works-img {
+	width: 60%;
+}
+
+/* グリッド本体 */
+.cooking-gallery {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 10px;
+}
+
+/* =========================
+   正方形の箱（ここが核心）
+========================= */
+
+.cooking-gallery .item {
+	aspect-ratio: 1 / 1;
+	overflow: hidden;
+	position: relative;
+	cursor: pointer;
+
+	border-radius: 8px;
+	background-color: #F1ECE4;
+	border: 1px dashed #D6CFC7;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	font-size: 12px;
+	color: #8A8178;
+}
+
+/* 画像だけ中身としてフィット */
+.cooking-gallery img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+	transition: opacity 0.3s ease;
+}
+
+/* =========================
+   MOREボタン
+========================= */
+
+.more-btn {
+	display: block;
+	margin-top: 5px;
+	text-align: right;
+	font-size: 14px;
+	letter-spacing: 0.1em;
+	color: #5A544E;
+	transition: opacity 0.3s;
+}
+
+.more-btn:hover {
+	opacity: 0.6;
+}
+
+/* =========================
+   スマホ
+========================= */
+
+@media screen and (max-width: 959px) {
+
+	.cooking-card {
+		flex-direction: column;
+		gap: 20px;
+	}
+
+	.work-text,
+	.works-img {
+		width: 100%;
+	}
+
+	.cooking-gallery {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.cooking-title {
+		font-size: 20px;
+	}
+
+	.more-btn {
+		font-size: 13px;
+		margin-top: 12px;
+	}
+
+	.cooking-gallery .item .hover-label {
+		opacity: 1;
+
+		/* 右下に配置 */
+		top: auto;
+		left: auto;
+		bottom: 6px;
+		right: 8px;
+		transform: none;
+
+		/* 背景なし・控えめなサイズと細さ */
+		background: none;
+		color: #ffffff;
+		/* 真っ白に戻してハッキリさせる */
+		font-size: 9px;
+		font-weight: normal;
+		/* 太くしない */
+		padding: 0;
+
+		/* ★影をしっかり濃く・くっきりに調整 */
+		text-shadow: 0 0 3px rgba(0, 0, 0, 1), 0 1px 3px rgba(0, 0, 0, 0.95);
+	}
+
+	.cooking-gallery .item img {
+		opacity: 1;
+	}
+}
+
+
+/* ==========================================================================
+   ページタイトル（cooking-hero）内の画像設定
+   ========================================================================== */
+
+/* 追加した画像の設定 */
+.cooking-hero .cooking-title-img {
+	display: block;
+	margin: 16px auto 0;
+	/* 上の文字（pタグ）との間に16pxの隙間をあけ、画像を中央に置く */
+
+	/* ▼ 表示サイズ（見え方に合わせて自由に変えてください） */
+	width: 150px;
+	/* まずは小さめの100pxにしています。もっと大きくしたければ150pxなどに増やしてください */
+	height: auto;
+	/* 縦横比をキープ */
+}
+
+/* =========================
+   写真 STORY表示
+========================= */
+
+/* ホバー時 少し暗くする */
+.cooking-gallery .item:hover img {
+	opacity: 0.7;
+}
+
+
+/* STORY文字 */
+.hover-label {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+
+	background: rgba(90, 84, 78, 0.75);
+	color: #fff;
+
+	padding: 8px 16px;
+
+	font-size: 12px;
+	letter-spacing: 0.1em;
+
+	border-radius: 2px;
+
+	opacity: 0;
+	transition: opacity 0.3s ease;
+
+	pointer-events: none;
+}
+
+
+/* ホバーで表示 */
+.cooking-gallery .item:hover .hover-label {
+	opacity: 1;
+}
+
+
+/* =========================
+	 STORYモーダル表示
+========================= */
+
+
+.photo-note {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.3);
+	z-index: 1000;
+}
+
+.photo-note-inner {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background: #fff;
+	padding: 30px;
+	width: 80%;
+	max-width: 400px;
+	border-radius: 10px;
+}
+
+.photo-note-close {
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	border: none;
+	background: none;
+	font-size: 20px;
+}
+
+/* 写真説明文 */
+.photo-link-note {
+	font-size: 11px;
+	color: #8A8178;
+	text-align: right;
+	margin-top: 8px;
+	margin-bottom: 0;
+}
+
+.photo-note p {
+	font-size: 16px;
+	line-height: 1.8;
+	white-space: pre-line;
+}

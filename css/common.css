@@ -1,0 +1,625 @@
+@charset "UTF-8";
+
+:root {
+	--container: 1080px;
+	--gap: 24px;
+	--radius: 12px;
+}
+
+html {
+	font-size: 62.5%;
+	width: 100%;
+	scroll-snap-type: y proximity;
+	scroll-padding-top: 120px;
+	scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	display: block;
+}
+
+ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	font-family: "YakuHanJP_Narrow", "Zen Kaku Gothic New", sans-serif;
+	color: #5A544E;
+	/* パステルに馴染む優しいブラウングレー */
+	background-color: #FAF8F5;
+	/* ほんのり温かみのあるアイボリーホワイト */
+	font-size: 15px;
+	letter-spacing: 0.05em;
+	line-height: 1.5;
+	margin: 0;
+}
+
+/* 通常のリンク部分のみ元のカーソルを消すように限定 */
+.sp-nav a,
+.breadcrumb a,
+.mail-btn {
+	cursor: none;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+.sp-nav a {
+	cursor: pointer;
+}
+
+/* パンくず */
+.breadcrumb {
+	font-size: 14px;
+	letter-spacing: 0.1em;
+	margin: 100px auto 15px;
+	max-width: 1080px;
+	padding: 0 20px;
+	color: #A59C90;
+}
+
+.breadcrumb a {
+	color: #5A544E;
+	text-decoration: none;
+	transition: opacity 0.3s;
+}
+
+.breadcrumb a:hover {
+	opacity: 0.6;
+}
+
+.breadcrumb span {
+	margin: 0 6px;
+}
+
+/* ⚠️重複していた旧 .sub-nav の記述は削除し、後半のアコーディオンブロックへ統合しました */
+
+/* --- 水色フワフワマウスカーソル --- */
+@media screen and (min-width: 900px) {
+
+	html,
+	body {
+		cursor: none;
+	}
+
+	.cursor {
+		position: fixed;
+		top: -10px;
+		left: -10px;
+		width: 20px;
+		height: 20px;
+		border-radius: 50%;
+		background: #D5E4E6;
+		/* 淡いパステルブルー */
+		z-index: 9999;
+		transition: width 0.5s, height 0.5s, top 0.5s, left 0.5s;
+		transform: translate(0, 0);
+		pointer-events: none;
+		display: block;
+	}
+
+	.cursor.active,
+	.cursor.cursor--hover {
+		top: -40px;
+		left: -40px;
+		width: 80px;
+		height: 80px;
+		background: rgba(186, 216, 221, 0.5);
+		/* さらに優しいパステル水色の透明感 */
+	}
+}
+
+/* --- ヘッダー --- */
+.header {
+	width: 100%;
+	height: 80px;
+	position: fixed;
+	top: 0;
+	z-index: 99;
+}
+
+#sp-hamburger {
+	background-color: transparent;
+	position: absolute;
+	top: 1vw;
+	right: 1vw;
+	height: 2.604vw;
+	width: 4.166vw;
+	z-index: 100;
+	transition: all 0.6s ease;
+}
+
+#sp-hamburger .icon span {
+	position: absolute;
+	left: 0.781vw;
+	width: 2.6vw;
+	height: 1px;
+	background-color: #5A544E;
+	border-radius: 0.416vw;
+	transition: ease 0.75s;
+}
+
+#sp-hamburger .icon span:nth-of-type(1) {
+	top: 0.937vw;
+}
+
+#sp-hamburger .icon span:nth-of-type(2) {
+	display: none;
+}
+
+#sp-hamburger .icon span:nth-of-type(3) {
+	bottom: 0.833vw;
+}
+
+#sp-hamburger.active .icon span:nth-of-type(1) {
+	top: 1.458vw;
+	transform: rotate(30deg);
+	background-color: #BAD8DD;
+}
+
+#sp-hamburger.active .icon span:nth-of-type(3) {
+	top: 1.458vw;
+	transform: rotate(-30deg);
+	background-color: #BAD8DD;
+}
+
+
+/* --- 📱 スマホ用ナビゲーションメニューの調整エリア --- */
+.sp-nav {
+	display: none;
+	z-index: 99;
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 13.5vw;
+	background: #FAF8F5;
+	box-shadow: -0.26vw 0.26vw 2.083vw 0px #EBE7E0;
+	border-radius: 0 0 0 1.562vw;
+	text-align: center;
+
+	/* 💡【PC用】アコーディオンが開いて縦に長くなっても切れないようにする */
+	height: auto;
+	max-height: 90vh;
+	/* 画面からはみ出る場合はスクロールさせる */
+	overflow-y: auto;
+}
+
+.sp-nav.active {
+	display: block;
+}
+
+.sp-nav ul {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: auto;
+	min-height: 50svh;
+	padding: 6vw 2vw;
+	gap: 1.5vw;
+}
+
+/* 第1階層の項目（トップ、実績、私について等）にのみスタイルを限定 */
+.sp-nav>ul>li {
+	padding: 0.5vw 0;
+	position: relative;
+	width: 100%;
+	letter-spacing: 0.15em;
+	font-size: 14px;
+	font-weight: 500;
+}
+
+.sp-nav a {
+	color: #5A544E;
+	transition: all 0.4s;
+	display: block;
+	width: 100%;
+}
+
+.sp-nav a:hover {
+	color: #9EC2C7;
+}
+
+.sp-nav li span {
+	color: #9EC2C7;
+	font-size: 10px;
+	font-family: "Albert Sans", sans-serif;
+	letter-spacing: 0.1em;
+	font-weight: 400;
+	display: block;
+	margin-top: 2px;
+}
+
+@media screen and (max-width: 959px) {
+	#sp-hamburger {
+		right: 2.666vw;
+		top: 1.333vw;
+		height: 16vw;
+		width: 16vw;
+	}
+
+	.sp-nav {
+		width: 100%;
+		background: #FAF8F5;
+		box-shadow: none;
+		border-radius: 0;
+
+		/* 💡アコーディオンを開いて画面からはみ出しても、縦スクロールできるようにする */
+		position: fixed;
+		/* absoluteからfixedに変えるとよりスクロールが安定します */
+		top: 0;
+		left: 0;
+		height: 100vh;
+		overflow-y: auto;
+		-webkit-overflow-scrolling: touch;
+		/* スマホでのスクロールを滑らかにする */
+
+	}
+
+	.sp-nav ul {
+		height: auto;
+		/* 💡高さを固定せず、中身に合わせて伸びるようにする */
+		min-height: 100%;
+		/* 最低でも画面いっぱいの背景は維持する */
+		padding: 120px 40px 60px;
+		gap: 0;
+		justify-content: flex-start;
+	}
+
+	/* スマホの大きな親メニューのみに余白と点線を適用 */
+	.sp-nav>ul>li {
+		padding: 16px 0;
+		font-size: 16px;
+		border-bottom: 1px dashed #EBE7E0;
+	}
+
+	/* 最後のお問い合わせだけ線なし */
+	.sp-nav>ul>li:last-child {
+		border-bottom: none;
+	}
+
+	#sp-hamburger .icon span {
+		left: 4vw;
+		width: 8vw;
+		border-radius: 2.133vw;
+	}
+
+	#sp-hamburger .icon span:nth-of-type(1) {
+		top: 6.666vw;
+	}
+
+	#sp-hamburger .icon span:nth-of-type(3) {
+		bottom: 6.666vw;
+	}
+
+	#sp-hamburger.active .icon span:nth-of-type(1) {
+		top: 7.466vw;
+	}
+
+	#sp-hamburger.active .icon span:nth-of-type(3) {
+		top: 7.466vw;
+	}
+
+	.sp-nav li span {
+		font-size: 11px;
+		position: static;
+		transform: none;
+		margin-top: 4px;
+	}
+}
+
+/* --- フッター & お問い合わせ --- */
+footer {
+	position: relative;
+	z-index: 2;
+	margin-top: 120px;
+
+	background-color: #f5f5f5;
+	text-align: center;
+}
+
+.footer__contact {
+	text-align: center;
+	background-color: #EBF2F3;
+	width: 100%;
+	height: auto;
+	padding: 260px 0 80px 0;
+}
+
+.footer__nav a {
+	color: inherit;
+	text-decoration: none;
+	font-size: 0.85rem;
+}
+
+.footer__nav {
+	display: flex;
+	flex-direction: row;
+	gap: 20px;
+}
+
+
+
+.contact__content-wrapper {
+	max-width: 1080px;
+	margin: 0 auto;
+	position: relative;
+}
+
+.contact-illust {
+	position: absolute;
+	top: -150px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 160px;
+}
+
+.contact-illust img {
+	width: 100%;
+	height: auto;
+	display: block;
+}
+
+.contact__thanks-message {
+	font-size: 22px;
+	font-weight: 500;
+	letter-spacing: 0.15em;
+	margin-bottom: 60px;
+	color: #5A544E;
+}
+
+.contact__mail span {
+	display: block;
+	margin-bottom: 24px;
+}
+
+.mail-btn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 420px;
+	margin: 0 auto;
+	padding: 23px 95px 23px 80px;
+	border: 1px solid #9EC2C7;
+	border-radius: 40px;
+	background-color: #fff;
+	color: #9EC2C7;
+	font-size: 15px;
+	font-family: "Albert Sans", sans-serif;
+	letter-spacing: 0.12em;
+	position: relative;
+	transition: all 0.3s;
+}
+
+.mail-btn:hover {
+	background-color: #9EC2C7;
+	color: #fff;
+}
+
+.footer__content-wrapper {
+	max-width: 1120px;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 15px;
+	padding: 25px 20px;
+}
+
+small {
+	font-weight: 500;
+	letter-spacing: 0.16em;
+	font-size: 12px;
+}
+
+/* フッターのPR表記 */
+.footer__pr-notice {
+	font-size: 11px;
+	color: #999999;
+	text-align: center;
+	margin-bottom: 15px;
+	/* コピーライトとの間隔 */
+	letter-spacing: 0.05em;
+	line-height: 1.6;
+}
+
+/* --- ページトップに戻るボタン --- */
+#page-top {
+	position: fixed;
+	right: 70px;
+	bottom: 180px;
+	z-index: 999;
+	opacity: 0;
+	transform: translateY(100px);
+	transition: all 0.5s ease;
+}
+
+#page-top.visible {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+#page-top a img {
+	width: 70px;
+	height: 70px;
+}
+
+.bird-icon {
+	width: 60px;
+	height: auto;
+	margin-bottom: 5px;
+}
+
+.pagetop-link {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-decoration: none;
+	color: #5A544E;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.pagetop-link:hover {
+	opacity: 0.8;
+}
+
+
+@media screen and (max-width:767px) {
+	#page-top a img {
+		width: 40px;
+		height: 40px;
+	}
+
+	#page-top {
+		right: 10px;
+		bottom: 70px;
+	}
+
+
+	/* ここに追加 */
+	.footer__contact {
+		padding: 200px 20px 80px;
+	}
+
+
+
+	.contact__thanks-message {
+		font-size: 16px;
+		margin-bottom: 30px;
+	}
+
+	.mail-btn {
+		width: 100%;
+		max-width: 300px;
+		font-size: 14px;
+	}
+}
+
+/* --- 趣味スライダー画像用 --- */
+.hobby-img {
+	width: 100%;
+	height: 200px;
+	object-fit: cover;
+	border-radius: 12px;
+}
+
+/* --- アニメーション --- */
+.fadeUpTrigger {
+	opacity: 0;
+	transform: translateY(20px);
+	transition: opacity 1s ease, transform 1s ease;
+}
+
+.fadeUpTrigger.visible {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+/* ==========================================================================
+   ナビゲーションの実績アコーディオン開閉（完全解決・最適化版）
+   ========================================================================== */
+
+/* 1. 初期状態：完全に高さをゼロにして、余白や文字による浮きを消し去る */
+.sp-nav ul li .sub-nav {
+	display: block;
+	/* flexなどの影響を受けないようブロック化 */
+	height: 0;
+	/* 💡autoではなく、明確に「0」を指定 */
+	max-height: 0;
+	min-height: 0;
+	/* 💡古い100vhなどの指定を「0」で上書き */
+	overflow: hidden;
+	opacity: 0;
+	padding: 0;
+	margin: 0;
+	border: none;
+	box-shadow: none;
+	transform: none;
+	position: static;
+	width: 100%;
+	background-color: #F1ECE4;
+	border-radius: 4px;
+
+	/* 滑らかに閉じるための transition */
+	transition: max-height 0.4s ease, opacity 0.4s ease, padding 0.4s ease, margin 0.4s ease;
+}
+
+/* 閉じている時は、中のリンクやリストの文字サイズ・余白も連動して完全にゼロにする */
+
+
+
+/* 2. 開いた状態：クラス「open」がついたら、高さを戻して中身を展開する */
+.sp-nav ul li .sub-nav.open {
+	height: auto;
+	/* 開いた時は中身に合わせる */
+	max-height: 500px;
+	/* アニメーション用の上限高さ */
+	opacity: 1;
+	padding: 8px 0;
+	/* 開いた時だけ上下に少し余白を作る */
+	margin-top: 10px;
+	/* 「実績」の文字との隙間 */
+}
+
+/* 開いた時だけ、中のリンクの文字サイズや余白を正しく出現させる */
+.sp-nav ul li .sub-nav.open li a {
+	padding: 10px 24px;
+	/* 開いた時の綺麗なクリックエリア */
+	font-size: 14px;
+	/* 文字サイズを戻す */
+	line-height: 1.5;
+	color: #5A544E;
+	cursor: pointer;
+}
+
+/* サブメニュー内の個別liのスタイルリセット（開いた時） */
+.sp-nav ul li .sub-nav.open li {
+	width: 100%;
+	border: none;
+}
+
+/* Coming soon項目 */
+.sp-nav ul li .sub-nav li.coming-soon a {
+	cursor: default;
+	opacity: 0.6;
+}
+
+.sp-nav ul li .sub-nav li.coming-soon a:hover {
+	background-color: transparent;
+	color: #5A544E;
+}
+
+@media (max-width: 959px) {
+	footer {
+		font-size: 12px;
+	}
+
+	footer small {
+		font-size: 11px;
+	}
+
+	.footer__content-wrapper {
+		flex-direction: column;
+		gap: 15px;
+		text-align: center;
+	}
+
+	.footer__nav {
+		flex-direction: column;
+		gap: 10px;
+	}
+
+}

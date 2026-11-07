@@ -1,0 +1,306 @@
+@charset "UTF-8";
+
+/* =========================
+   全体
+========================= */
+
+.illustration {
+	max-width: 900px;
+	margin: 0 auto;
+	padding: 120px 20px;
+}
+
+/* =========================
+   タイトル
+========================= */
+
+.illustration h1 {
+	text-align: center;
+	font-size: 32px;
+	font-weight: 400;
+	letter-spacing: 0.15em;
+	margin-bottom: 60px;
+}
+
+/* =========================
+   noteの注釈
+========================= */
+
+.note-guide {
+	font-size: 13px;
+	color: #777;
+	margin-bottom: 25px;
+}
+
+/* =========================
+   ギャラリー（作品感の核）
+========================= */
+
+.illust-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 40px;
+}
+
+/* =========================
+   作品カード
+========================= */
+
+.illust-grid .item {
+	border-radius: 12px;
+	background: transparent;
+	font-size: 12px;
+	color: #8A8178;
+}
+
+.illust-grid .item {
+	display: flex;
+	flex-direction: column;
+}
+
+/* =========================
+   画像
+========================= */
+
+.illust-grid img {
+	border-radius: 12px;
+	background: transparent;
+}
+
+.illust-image {
+	position: relative;
+	overflow: hidden;
+	border-radius: 12px;
+	aspect-ratio: 7 / 5;
+	background: #fff;
+}
+
+.illust-image img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+	transition: transform 0.4s ease;
+}
+
+/* ちょい作品感（重要） */
+.illust-image img:hover {
+	transform: scale(1.03);
+}
+
+/* comming soon */
+.illust-grid .coming-soon {
+	letter-spacing: 0.1em;
+}
+
+.illust-grid .coming-soon .illust-image {
+	background: #fff;
+	border: 1px dashed #D6CFC7;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.illust-info {
+	text-align: center;
+	margin-top: 12px;
+}
+
+.illust-date {
+	font-size: 12px;
+	letter-spacing: 0.12em;
+	color: #A59C90;
+}
+
+
+
+/* =========================
+   フッター戻り導線（あれば）
+========================= */
+
+.back-home {
+	display: block;
+	text-align: center;
+	margin-top: 80px;
+	font-size: 14px;
+	color: #5A544E;
+	text-decoration: none;
+}
+
+.back-home:hover {
+	opacity: 0.6;
+}
+
+/* =========================
+   スマホ・タブレット（レスポンシブ）
+========================= */
+
+@media screen and (max-width: 959px) {
+	.illustration {
+		padding: 80px 20px;
+		/* 上下の余白をスマホ向けに少しスリムに */
+	}
+
+	.illust-grid {
+		/* スマホ・タブレットでは2列に並べる（1列よりスッキリ見えておすすめ！） */
+		grid-template-columns: repeat(2, 1fr);
+		gap: 20px;
+		/* カード同士の間隔も少し狭くして画面に収まりやすく */
+	}
+
+	.illustration h1 {
+		font-size: 24px;
+		margin-bottom: 40px;
+	}
+}
+
+/* より小さなスマホ用（iPhone SEなど） */
+@media screen and (max-width: 480px) {
+	.illust-grid {
+		/* 画面幅がかなり狭いスマホだけ、贅沢に1列で見せる */
+		grid-template-columns: 1fr;
+		gap: 25px;
+	}
+}
+
+/* =========================
+   NOTE表示
+========================= */
+
+.illust-grid .item {
+	position: relative;
+	cursor: pointer;
+}
+
+
+
+
+
+.illust-image:hover img {
+	opacity: 0.7;
+}
+
+
+.illust-image .hover-label {
+
+	position: absolute;
+	top: 50%;
+	left: 50%;
+
+	transform: translate(-50%, -50%);
+
+	background: rgba(90, 84, 78, 0.75);
+
+	color: #fff;
+
+	padding: 6px 12px;
+
+	font-size: 10px;
+
+	letter-spacing: 0.1em;
+
+	border-radius: 2px;
+
+	opacity: 0;
+
+	transition: opacity 0.3s ease;
+
+	pointer-events: none;
+}
+
+
+.illust-image:hover .hover-label {
+	opacity: 1;
+}
+
+/* =========================
+   NOTE エピソード表示
+========================= */
+
+.illust-note {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.3);
+	z-index: 1000;
+}
+
+.illust-note-inner {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+
+	background: #F9F6F0;
+
+	padding: 40px;
+
+	width: 80%;
+	max-width: 400px;
+
+	border-radius: 16px;
+
+	box-shadow: 0 10px 30px rgba(90, 84, 78, 0.15);
+}
+
+.illust-note-close {
+	position: absolute;
+	right: 10px;
+	top: 10px;
+
+	border: none;
+	background: none;
+
+	font-size: 20px;
+	cursor: pointer;
+	color: #8A8178;
+}
+
+.illust-note-inner h3 {
+	font-size: 18px;
+	font-weight: 500;
+	letter-spacing: 0.1em;
+	margin-bottom: 20px;
+	color: #5A544E;
+}
+
+.illust-note-inner p {
+	font-size: 14px;
+	line-height: 2;
+	color: #5A544E;
+}
+
+.illust-note-inner p {
+	white-space: pre-line;
+	line-height: 1.8;
+}
+
+/* =========================
+   スマホ・タブレット時のNOTEラベル表示
+========================= */
+@media screen and (max-width: 959px) {
+	.illust-image .hover-label {
+		opacity: 1;
+
+		/* 右下に配置 */
+		top: auto;
+		left: auto;
+		bottom: 6px;
+		right: 8px;
+		transform: none;
+
+		/* 背景なし・通常のグレー文字（濃いめのグレーなどにする場合もここで調整できます） */
+		background: none;
+		color: #5A544E;
+		/* タイトルや日付と合わせた落ち着いた色 */
+		font-size: 10px;
+		font-weight: normal;
+		padding: 0;
+
+		/* 影は不要なのでリセット */
+		text-shadow: none;
+	}
+}

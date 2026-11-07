@@ -1,0 +1,114 @@
+@charset "UTF-8";
+
+/* =========================
+   プライバシーポリシー
+========================= */
+
+.privacy-page {
+	padding-top: 30px;
+	padding-bottom: 250px;
+	background-color: #FAF8F5;
+}
+
+
+/* イラスト */
+.privacy__container {
+	max-width: 700px;
+	width: 100%;
+	margin: 0 auto;
+	padding: 0 20px;
+}
+
+.privacy__illust {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.privacy__illust img {
+	width: 100px;
+	height: auto;
+}
+
+
+/* タイトル */
+.privacy__title {
+	text-align: center;
+	margin-bottom: 50px;
+}
+
+.privacy__title h1 {
+	font-size: 26px;
+	font-weight: 500;
+	color: #5A544E;
+	letter-spacing: 0.15em;
+}
+
+.privacy__title .section-sub {
+	display: block;
+	font-size: 13px;
+	color: #A59C90;
+	margin-top: 6px;
+}
+
+
+/* 本文 */
+.privacy__content {
+	max-width: 700px;
+	margin: 0 auto;
+	padding: 0 20px;
+	font-size: 14px;
+	line-height: 2;
+}
+
+.privacy__content h2 {
+	font-size: 18px;
+	font-weight: 500;
+	margin: 50px 0 20px;
+	letter-spacing: 0.1em;
+}
+
+.privacy__content p {
+	margin-bottom: 30px;
+}
+
+.privacy__date {
+	margin-top: 60px;
+	color: #8A8178;
+}
+
+
+/* スマホ */
+@media screen and (max-width:959px) {
+
+	.privacy-page {
+		padding-top: 40px;
+		padding-bottom: 180px;
+	}
+
+	.privacy__illust img {
+		width: 80px;
+	}
+
+	.privacy__title h1 {
+		font-size: 24px;
+	}
+
+	.privacy__content {
+		padding: 0 20px;
+	}
+
+}
+
+.back-btn {
+	display: block;
+	width: fit-content;
+	margin: 60px auto 0;
+	font-size: 14px;
+	letter-spacing: 0.1em;
+	color: #5A544E;
+	text-decoration: none;
+}
+
+.back-btn:hover {
+	opacity: 0.6;
+}

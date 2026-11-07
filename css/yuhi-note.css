@@ -1,0 +1,313 @@
+@charset "UTF-8";
+
+
+/* =========================
+   制作ノート 共通
+========================= */
+
+.yuhi-note-page {
+	padding-top: 100px;
+}
+
+
+.yuhi-note {
+	max-width: 1088px;
+	margin: 0 auto;
+	padding: 0 20px;
+}
+
+
+/* タイトル */
+
+
+
+
+/* =========================
+   ラッパー
+========================= */
+
+.yuhi-note__wrapper {
+	max-width: 1088px;
+	margin: 0 auto;
+}
+
+
+/* =========================
+   ファーストビュー
+========================= */
+
+.yuhi-intro {
+	display: flex;
+	flex-direction: column;
+	gap: 60px;
+	margin-bottom: 160px;
+}
+
+
+.yuhi-intro__text {
+	width: 100%;
+}
+
+
+.yuhi-intro__text h3 {
+	font-size: 20px;
+	font-weight: 500;
+	line-height: 1.8;
+	margin-bottom: 30px;
+	letter-spacing: 0.08em;
+}
+
+
+.yuhi-intro__text p {
+	font-size: 15px;
+	line-height: 2.2;
+}
+
+
+.yuhi-intro__image {
+	width: 60%;
+	margin: 0 auto;
+}
+
+
+.yuhi-intro__image img {
+	width: 100%;
+	border-radius: 12px;
+}
+
+
+/* =========================
+   各セクション
+========================= */
+
+.yuhi-concept,
+.yuhi-design,
+.yuhi-selection {
+	margin-bottom: 250px;
+}
+
+
+.yuhi-concept h3,
+.yuhi-design h3,
+.yuhi-selection h3 {
+	font-size: 24px;
+	letter-spacing: 0.15em;
+	margin-bottom: 5px;
+}
+
+
+.section-sub-text {
+	color: #9EC2C7;
+	font-size: 13px;
+	margin-bottom: 40px;
+}
+
+
+.yuhi-concept p,
+.yuhi-design p,
+.yuhi-selection p {
+	font-size: 15px;
+	line-height: 2.2;
+}
+
+.yuhi-design h4 {
+	margin-top: 40px;
+	margin-bottom: 10px;
+	font-size: 18px;
+}
+
+.yuhi-concept p {
+	margin-bottom: 30px;
+}
+
+.yuhi-design p {
+	margin-bottom: 10px;
+}
+
+.yuhi-concept p,
+.yuhi-design p {
+	max-width: 700px;
+}
+
+
+.design-item+.design-item {
+	margin-top: 80px;
+}
+
+/* =========================
+   SELECTION
+========================= */
+
+.selection-item {
+	display: flex;
+	gap: 40px;
+	margin-top: 180px;
+	align-items: flex-start;
+}
+
+.selection-item:first-child {
+	margin-top: 60px;
+}
+
+
+.selection-item img {
+	width: 280px;
+	height: 280px;
+	object-fit: contain;
+	border-radius: 12px;
+	cursor: pointer;
+	transition: .3s;
+}
+
+
+.selection-item h4 {
+	font-size: 18px;
+	margin-bottom: 20px;
+}
+
+
+.selection-btn {
+	display: inline-block;
+	margin-top: 40px;
+	padding: 12px 30px;
+	border: 1px solid #D6CFC7;
+	text-decoration: none;
+	color: #5A544E;
+	font-size: 13px;
+	letter-spacing: 0.1em;
+}
+
+.selection-item>a {
+	display: block;
+	width: 280px;
+}
+
+
+
+.selection-item img:hover {
+	opacity: .8;
+}
+
+.selection-btn:hover {
+	background: #5A544E;
+	color: #fff;
+}
+
+.selection-item>div {
+	max-width: 700px;
+}
+
+
+
+
+/* =========================
+   戻るボタン
+========================= */
+
+.works__more-btn-container {
+	display: flex;
+	justify-content: center;
+	margin: 80px 0 60px;
+}
+
+
+.works__more-btn {
+	display: inline-block;
+	padding: 12px 40px;
+	border: 1px solid #D6CFC7;
+	color: #5A544E;
+	text-decoration: none;
+	font-size: 13px;
+	letter-spacing: 0.12em;
+	transition: .3s;
+}
+
+
+.works__more-btn:hover {
+	background: #5A544E;
+	color: #fff;
+}
+
+@media screen and (max-width: 768px) {
+
+
+	/* 制作ノート */
+
+	.yuhi-note-page {
+		padding-top: 60px;
+	}
+
+
+	.yuhi-intro {
+		gap: 40px;
+		margin-bottom: 100px;
+	}
+
+
+	.yuhi-intro__text {
+		width: 100%;
+	}
+
+
+	.yuhi-intro__image {
+		width: 100%;
+	}
+
+
+
+	/* セクション */
+
+	.yuhi-concept,
+	.yuhi-design,
+	.yuhi-selection {
+		margin-bottom: 120px;
+	}
+
+
+	.yuhi-concept h3,
+	.yuhi-design h3,
+	.yuhi-selection h3 {
+		font-size: 20px;
+	}
+
+
+
+	/* SELECTION */
+
+	.selection-item {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 30px;
+		margin-top: 100px;
+	}
+
+
+	.selection-item:first-child {
+		margin-top: 40px;
+	}
+
+
+	.selection-item>a {
+		width: 100%;
+	}
+
+
+	.selection-item img {
+		width: 100%;
+		height: auto;
+	}
+
+
+}
+
+/* CONCEPT, DESIGN, SELECTIONSの共通タイトル */
+.yuhi-concept h3,
+.yuhi-design h3,
+.yuhi-selection h3 {
+	font-size: 26px;
+	letter-spacing: 0.15em;
+	margin-bottom: 5px;
+	padding-left: 16px;
+	border-left: 4px solid #9EC2C7;
+	/* ブランドの差し色（アクセントカラー） */
+}

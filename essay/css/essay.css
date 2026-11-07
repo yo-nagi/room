@@ -1,0 +1,156 @@
+@charset "UTF-8";
+
+/* =========================
+   全体・共通設定
+========================= */
+.essay-page {
+	max-width: 900px;
+	margin: 0 auto;
+	padding: 120px 20px;
+	background-color: #FAF8F5;
+}
+
+/* =========================
+   ヒーローエリア（タイトル）
+========================= */
+.essay-hero {
+	text-align: center;
+	margin-bottom: 80px;
+}
+
+.essay-title {
+	font-size: 32px;
+	font-weight: 400;
+	letter-spacing: 0.15em;
+	color: #5A544E;
+	margin-bottom: 15px;
+}
+
+/* =========================
+   コンテンツ（横並び）
+========================= */
+.essay-container {
+	display: flex;
+	flex-direction: column;
+	gap: 80px;
+}
+
+.essay-item {
+	display: flex;
+	gap: 40px;
+	/* 少し広げて余裕を持たせました */
+	align-items: flex-start;
+}
+
+/* 画像エリア：固定比率の空箱 */
+.essay-item__image {
+	flex: 0 0 40%;
+	/* 画像を少し大きめに */
+	aspect-ratio: 16 / 9;
+	background-color: #eee;
+	border-radius: 12px;
+	overflow: hidden;
+}
+
+.essay-item__image img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+/* テキストエリア */
+.essay-item__text {
+	flex: 1;
+}
+
+.essay-item__date {
+	display: block;
+	font-size: 13px;
+	color: #8A8178;
+	margin-bottom: 10px;
+}
+
+.essay-item__title {
+	font-size: 20px;
+	font-weight: 500;
+	color: #5A544E;
+	margin-bottom: 20px;
+}
+
+.essay-item__essay {
+	line-height: 1.8;
+	color: #5A544E;
+	margin-bottom: 20px;
+}
+
+/* つづきはこちらボタン（シンプルに） */
+/* .works-btn {
+	display: inline-block;
+	font-size: 14px;
+	color: #8A8178;
+	border-bottom: 1px solid #8A8178;
+	cursor: pointer;
+	text-decoration: none;
+} */
+
+/* エッセイ続きを読む */
+.essay-more {
+	display: none;
+	line-height: 1.8;
+	color: #5A544E;
+
+}
+
+.essay-more.open {
+	display: block;
+	margin-top: 0;
+}
+
+.essay-more-btn {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	padding: 0;
+	border: none;
+	background: none;
+	color: #8A8178;
+	font-size: 14px;
+	cursor: pointer;
+	letter-spacing: 0.08em;
+}
+
+.essay-more-btn::after {
+	content: " →";
+	transition: 0.3s;
+}
+
+.essay-more-btn:hover {
+	opacity: 0.7;
+}
+
+.essay-more-btn:hover {
+	opacity: 0.7;
+}
+
+.essay-more p:first-child {
+	margin-top: 0;
+}
+
+.essay-item__essay p,
+.essay-more p {
+	margin-bottom: 20px;
+}
+
+/* =========================
+   スマホ対応
+========================= */
+@media screen and (max-width: 768px) {
+	.essay-item {
+		flex-direction: column;
+		gap: 30px;
+	}
+
+	.essay-item__image {
+		flex: 0 0 auto;
+		width: 100%;
+	}
+}

@@ -1,0 +1,389 @@
+@charset "UTF-8";
+
+
+/* =========================
+   WORKS LIST
+========================= */
+
+.works {
+	padding-bottom: 50px;
+}
+
+.works__wrapper {
+	max-width: 1088px;
+	margin: 0 auto;
+	padding: 0 20px;
+}
+
+
+/* 本体 */
+.works-item {
+	display: flex;
+	align-items: flex-start;
+	/* ボタン追加で変更 */
+	gap: 60px;
+	margin-bottom: 160px;
+}
+
+.works-item.reverse {
+	flex-direction: row-reverse;
+}
+
+
+/* 画像 */
+.works-img {
+	width: 500px;
+	max-width: 100%;
+	flex-shrink: 0;
+	border-radius: 12px;
+	overflow: hidden;
+	box-shadow: 15px 15px 40px rgba(165, 156, 144, 0.15);
+}
+
+.works-img img {
+	width: 100%;
+	height: 350px;
+	object-fit: cover;
+	transition: transform 0.5s ease;
+	display: block;
+}
+
+.works-item:hover .works-img img {
+	transform: scale(1.05);
+}
+
+
+/* テキスト */
+.work-01__text,
+.work-02__text {
+	width: 545px;
+}
+
+
+/* 見出し */
+.description-text h3 {
+	position: relative;
+	font-size: 26px;
+	font-weight: 500;
+	padding: 10px 0 32px;
+}
+
+.description-text h3::after {
+	content: "";
+	position: absolute;
+	bottom: 24px;
+	left: 0;
+	width: 100%;
+	height: 1px;
+	background: #5A544E;
+	opacity: 0;
+	transition: 0.4s;
+}
+
+.works-item:hover .description-text h3::after {
+	opacity: 1;
+}
+
+
+/* 日付 */
+.description-text>span {
+	display: block;
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+
+/* タグ */
+.tag-text {
+	color: #9EC2C7;
+	font-size: 12px;
+	padding-left: 14px;
+	position: relative;
+}
+
+.tag-text::before {
+	content: "#";
+	position: absolute;
+	left: 0;
+}
+
+
+/* 本文 */
+.works__p {
+	font-size: 14px;
+	line-height: 1.8em;
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+.works-btn {
+	display: flex;
+	gap: 20px;
+}
+
+.works-btn__link {
+	display: inline-block;
+	padding: 12px 30px;
+	border: 1px solid #5A544E;
+	text-decoration: none;
+	font-size: 14px;
+	transition: 0.3s;
+}
+
+.works-btn__link:hover {
+	background: #5A544E;
+	color: #fff;
+}
+
+
+/* =========================
+   MORE BUTTON
+========================= */
+
+.works__more-btn-container {
+	display: flex;
+	justify-content: center;
+	margin: 60px 0 40px;
+}
+
+.works__more-btn {
+	padding: 14px 50px;
+	border: 1px solid #333;
+	text-decoration: none;
+	transition: 0.3s;
+}
+
+.works__more-btn:hover {
+	background: #333;
+	color: #fff;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width:1200px) {
+
+	.works-item,
+	.works-item.reverse {
+		flex-direction: column-reverse;
+		gap: 30px;
+		align-items: center;
+	}
+
+	.works-img {
+		width: 100%;
+		max-width: 500px;
+	}
+
+	.work-01__text,
+	.work-02__text {
+		width: 100%;
+		max-width: 545px;
+	}
+
+}
+
+
+@media (max-width:959px) {
+
+	.works-item,
+	.works-item.reverse {
+		flex-direction: column-reverse;
+		gap: 30px;
+		margin-bottom: 150px;
+	}
+
+	.works-img {
+		width: 100%;
+	}
+
+	.works-img img {
+		height: auto;
+	}
+
+	.work-01__text,
+	.work-02__text {
+		width: 100%;
+	}
+
+	.works-btn {
+		flex-direction: column;
+		gap: 15px;
+	}
+
+}
+
+.works-btn__link {
+	display: inline-block;
+	padding: 12px 30px;
+	border: 1px solid #D6CFC7;
+	color: #5A544E;
+	text-decoration: none;
+	font-size: 13px;
+	letter-spacing: 0.1em;
+	transition: .3s;
+}
+
+.works-btn__link:hover {
+	background: #5A544E;
+	color: #fff;
+}
+
+
+/* =========================
+   制作ノート 共通
+========================= */
+
+.yuhi-note-page {
+	padding-top: 100px;
+}
+
+.yuhi-note {
+	max-width: 1088px;
+	margin: 0 auto;
+	padding: 0 20px;
+}
+
+
+/* タイトル */
+
+.yuhi-note__title {
+	font-size: 28px;
+	font-weight: 600;
+	letter-spacing: 0.15em;
+	margin: 100px auto 50px;
+}
+
+
+/* =========================
+   メイン紹介
+========================= */
+
+.yuhi-intro {
+	display: flex;
+	align-items: center;
+	gap: 60px;
+	margin-bottom: 160px;
+}
+
+.yuhi-intro__text {
+	width: 50%;
+}
+
+.yuhi-intro__text h3 {
+	font-size: 26px;
+	font-weight: 500;
+	line-height: 1.8;
+	margin-bottom: 40px;
+}
+
+.yuhi-intro__text p {
+	font-size: 14px;
+	line-height: 2;
+}
+
+.yuhi-intro__image {
+	width: 50%;
+}
+
+.yuhi-intro__image img {
+	width: 100%;
+	border-radius: 12px;
+}
+
+
+/* =========================
+   各セクション
+========================= */
+
+.yuhi-concept,
+.yuhi-design,
+.yuhi-selection {
+	margin-bottom: 140px;
+}
+
+.yuhi-concept h3,
+.yuhi-design h3,
+.yuhi-selection h3 {
+	font-size: 22px;
+	letter-spacing: 0.15em;
+	margin-bottom: 10px;
+}
+
+.section-sub-text {
+	color: #9EC2C7;
+	font-size: 13px;
+	margin-bottom: 40px;
+}
+
+.yuhi-concept p,
+.yuhi-design p,
+.yuhi-selection p {
+	font-size: 14px;
+	line-height: 2;
+}
+
+
+/* =========================
+   商品紹介
+========================= */
+
+.selection-item {
+	display: flex;
+	gap: 40px;
+	margin-top: 60px;
+	align-items: center;
+}
+
+.selection-item img {
+	width: 280px;
+	height: 200px;
+	object-fit: cover;
+	border-radius: 12px;
+}
+
+.selection-item h4 {
+	font-size: 18px;
+	margin-bottom: 20px;
+}
+
+.selection-btn {
+	display: inline-block;
+	padding: 12px 30px;
+	border: 1px solid #D6CFC7;
+	text-decoration: none;
+	color: #5A544E;
+	font-size: 13px;
+	letter-spacing: 0.1em;
+}
+
+@media (max-width:959px) {
+
+	.works-btn {
+		align-items: center;
+	}
+
+	.works-btn__link {
+		width: 220px;
+		text-align: center;
+
+	}
+
+}
+
+@media (max-width:959px) {
+
+	.works-img {
+		margin: 0 auto;
+	}
+
+}
+
+.works-img a {
+	display: block;
+}

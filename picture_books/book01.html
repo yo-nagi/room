@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>手作り絵本『ずっとほしかったんだよね』 | えほんの部屋</title>
+	<meta name="description" content="凪が作った手作り絵本『ずっとほしかったんだよね』を読むページです。子どもの素直な気持ちや、心あたたまる小さな物語をお楽しみください。">
+	<link rel="icon" href="../images/illust/400_400/favicon_bird.png">
+	<!-- 共通CSSと絵本専用CSSの読み込み -->
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/common.css">
+	<link rel="stylesheet" href="css/picture_books.css">
+	<link rel="stylesheet" href="css/book01.css">
+
+</head>
+
+<body>
+	<!-- ふんわりカーソル用要素 -->
+	<div class="cursor"></div>
+	<div class="body-wrapper">
+
+		<!-- 🔥 ここはTOPと完全同じ -->
+		<div id="header"></div>
+		<main class="book-detail-page">
+			<div class="works__wrapper">
+				<!-- パンくずリスト（一覧ページに戻れるようにする） -->
+				<nav class="breadcrumb">
+					<a href="../index.html">TOP</a>
+					<span>›</span>
+					<a href="index.html">えほんの部屋</a>
+					<span>›</span>
+					<span>ずっとほしかったんだよね</span>
+				</nav>
+
+				<!-- 絵本のタイトル -->
+				<h2 class="works__title">
+					ずっとほしかったんだよね
+					<span class="section-sub">BOOK 01</span>
+				</h2>
+
+				<!-- 縦書き絵本用のクラス「vertical」を追加 -->
+				<div class="book-viewer vertical">
+					<div class="book-page-container">
+						<!-- 画像部分 -->
+						<div class="book-page">
+							<!-- 【追加】これが表紙の画像 -->
+							<img src="images/ehon1/web_ehon1-0.png" alt="絵本『ずっとほしかったんだよね』の表紙1ページ目" class="book-img active">
+							<!-- もともとの1ページ目（中身の1ページ目）は active を外す -->
+							<img src="images/ehon1/web_ehon1-1.png" alt="2ページ目" class="book-img">
+							<img src="images/ehon1/web_ehon1-1.5.png" alt="3ページ目" class="book-img">
+							<img src="images/ehon1/web_ehon1-2.png" alt="4ページ目" class="book-img">
+							<img src="images/ehon1/web_ehon1-3.png" alt="5ページ目" class="book-img">
+							<img src="images/ehon1/web_ehon1-4.png" alt="6ページ目" class="book-img">
+							<img src="images/ehon1/web_ehon1-5.png" alt="7ページ目" class="book-img">
+							<img src="images/ehon1/web_ehon1-6.png" alt="8ページ目" class="book-img">
+							<img src="images/ehon1/web_ehon1-7.png" alt="9ページ目裏表紙" class="book-img">
+						</div>
+					</div>
+
+					<!-- ボタンのHTMLは通常のままでOK -->
+					<div class="book-controls">
+						<button class="prev-btn" disabled>前のページ</button>
+						<span class="page-count">1 / 9</span>
+						<button class="next-btn">次のページ</button>
+					</div>
+				</div>
+
+				<!-- 絵本の紹介文やあらすじエリア -->
+				<div class="book-description-box">
+					<h3 class="book-description-title">【あとがき】</h3>
+					<p class="works__p">
+						このお話は、負けず嫌いでちょっと素直になれなかった、娘の小さかった頃の思い出がモチーフになっています。<br>
+						ちいちゃんシリーズとして、これからも子どもたちの日常にある小さな気持ちを丁寧に描いていけたらと思っています。
+					</p>
+				</div>
+
+				<!-- 一覧に戻るボタン -->
+				<div class="back-button-wrap">
+					<a href="index.html" class="mail-btn" style="display: inline-block; text-decoration: none;">えほんの部屋にもどる</a>
+				</div>
+			</div>
+		</main>
+	</div>
+
+
+	<!-- ページめくり用スクリプト（スワイプ対応版） -->
+	<script>
+		const images = document.querySelectorAll('.book-img');
+		const prevBtn = document.querySelector('.prev-btn');
+		const nextBtn = document.querySelector('.next-btn');
+		const pageCount = document.querySelector('.page-count');
+		const bookContainer = document.querySelector('.book-page-container');
+
+		let currentIndex = 0;
+		const totalPages = images.length;
+
+		function updateViewer() {
+			images.forEach((img, index) => {
+				if (index === currentIndex) {
+					img.classList.add('active');
+				} else {
+					img.classList.remove('active');
+				}
+			});
+
+			pageCount.textContent = `${currentIndex + 1} / ${totalPages}`;
+			prevBtn.disabled = (currentIndex === 0);
+			nextBtn.disabled = (currentIndex === totalPages - 1);
+		}
+
+		// 「次のページ」へ進む処理
+		function nextPage() {
+			if (currentIndex < totalPages - 1) {
+				currentIndex++;
+				updateViewer();
+			}
+		}
+
+		// 「前のページ」へ戻る処理
+		function prevPage() {
+			if (currentIndex > 0) {
+				currentIndex--;
+				updateViewer();
+			}
+		}
+
+		// ボタンクリックのイベント
+		nextBtn.addEventListener('click', nextPage);
+		prevBtn.addEventListener('click', prevPage);
+
+		// --- スマホなどのスワイプ（タッチ操作）対応 ---
+		let touchStartX = 0;
+		let touchEndX = 0;
+
+		bookContainer.addEventListener('touchstart', (e) => {
+			touchStartX = e.changedTouches[0].screenX;
+		}, { passive: true });
+
+		bookContainer.addEventListener('touchend', (e) => {
+			touchEndX = e.changedTouches[0].screenX;
+			handleSwipe();
+		}, { passive: true });
+
+		function handleSwipe() {
+			const swipeThreshold = 50; // スワイプと判定する最低限の距離（ピクセル）
+			const diff = touchStartX - touchEndX;
+
+			if (Math.abs(diff) > swipeThreshold) {
+				if (diff > 0) {
+					// 左にスワイプ ＝ 次のページへ進む（縦書きの場合は逆の動きにしたい場合は調整可能）
+					nextPage();
+				} else {
+					// 右にスワイプ ＝ 前のページへ戻る
+					prevPage();
+				}
+			}
+		}
+
+		// 初期化の実行
+		updateViewer();
+	</script>
+	<script src="../js/main.js"></script>
+
+</body>
+
+</html>

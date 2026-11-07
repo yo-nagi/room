@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>CONTACT | 感想・メッセージ</title>
+	<meta name="description" content="このサイトを見て感じたことや、ひとことメッセージを気軽に届けてもらえたら嬉しいです。">
+	<link rel="icon" href="images/illust/400_400/favicon_bird.png">
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/top.css">
+	<link rel="stylesheet" href="css/contact.css">
+</head>
+
+<body>
+	<div id="top"></div>
+	<div class="cursor"></div>
+
+	<div class="body-wrapper">
+
+		<div id="header"></div>
+
+		<main class="custom-contact-page">
+
+			<!-- ① パンくず -->
+			<nav class="breadcrumb">
+				<a href="index.html">TOP</a>
+				<span>›</span>
+				<span>お問い合わせ</span>
+			</nav>
+
+			<div class="custom-contact__container">
+				<div class="custom-contact__illust">
+					<img src="images/illust/400_400/bird_letter.png" alt="青い鳥が手紙を運ぶイラスト">
+				</div>
+
+				<div class="custom-contact__title">
+					<h2>お問い合わせ<span class="section-sub">CONTACT</span></h2>
+
+					<p class="contact-intro">
+						凪のへやをご覧いただきありがとうございます。<br>
+						ご感想やメッセージなど、お気軽にお寄せください。
+					</p>
+				</div>
+
+				<form action="https://formspree.io/f/xzeeqgal" method="post" class="custom-contact__form">
+
+					<div class="form-group">
+						<label for="name">お名前 <span class="required">必須</span></label>
+						<input type="text" id="name" name="name" placeholder="凪 nagi" required>
+					</div>
+
+					<div class="form-group">
+						<label for="email">メールアドレス <span class="required">必須</span></label>
+						<input type="email" id="email" name="email" placeholder="example@mail.com" required>
+					</div>
+
+					<div class="form-group">
+						<label for="message">メッセージ <span class="required">必須</span></label>
+						<textarea id="message" name="message" rows="6" placeholder="感想やメッセージなど、頂けたら嬉しいです。" required></textarea>
+					</div>
+
+					<div class="form-policy">
+						<p class="policy-text">
+							※お預かりした個人情報は、お問い合わせへの返信・ご連絡以外の目的には使用いたしません。<br>
+							※いただいたご感想やメッセージは、お名前（またはイニシャル）を添えて、当サイトやSNS等で紹介させていただく場合があります。
+						</p>
+						<label class="policy-checkbox-label">
+							<input type="checkbox" name="policy" required>
+							<span>
+								<a href="privacy-policy.html" target="_blank" rel="noopener noreferrer">プライバシーポリシー</a>に同意する
+							</span>
+						</label>
+					</div>
+
+					<div class="form-submit">
+						<button type="submit" class="submit-btn">メッセージを送る</button>
+					</div>
+
+				</form>
+			</div>
+		</main>
+
+		<div id="footer"></div>
+	</div>
+
+	<script src="js/main.js"></script>
+</body>
+
+</html>

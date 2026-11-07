@@ -1,0 +1,222 @@
+@charset "UTF-8";
+
+/* ==========================================================================
+   お問い合わせページ（contact.html）専用スタイル（!importantなし）
+   ========================================================================== */
+
+/* 1. ページ全体のレイアウトと余白 */
+.custom-contact-page {
+	padding-top: 30px;
+	/* ヘッダーの下にしっかり隙間を作る */
+	padding-bottom: 250px;
+	/* 💡ここがポイント！フッターのイラストが上に飛び出してくる分のスペースをあらかじめ空けておく */
+	background-color: #FAF8F5;
+	/* common.cssの背景と統一 */
+}
+
+/* 2. タイトルの中央揃え（独立したクラスなのでシンプルに中央に寄る） */
+.custom-contact__title {
+	text-align: center;
+	margin-bottom: 15px;
+}
+
+.custom-contact__title h2 {
+	font-size: 26px;
+	color: #5A544E;
+	margin-bottom: 25px;
+}
+
+.custom-contact__title .section-sub {
+	display: block;
+	font-size: 13px;
+	color: #A59C90;
+	margin-top: 6px;
+	letter-spacing: 0.1em;
+}
+
+/* ==========================================================================
+   イラストとフォームを中央にゆったり縦並びにする設定
+   ========================================================================== */
+
+.custom-contact__container {
+	max-width: 700px;
+	/* 💡フォームが窮屈にならず、広がりすぎもしない黄金比の横幅 */
+	width: 100%;
+	margin: 0 auto;
+	padding: 0 20px;
+	box-sizing: border-box;
+}
+
+.custom-contact__illust {
+	width: 100%;
+	/* 💡幅を280pxから「100%」に広げて背景っぽくします */
+	max-width: 100%;
+	margin: 0 auto;
+	text-align: center;
+	line-height: 0;
+	margin-bottom: 20px;
+	/* 画像の下に変な隙間ができるのを防ぐ */
+}
+
+.custom-contact__illust img {
+	width: 100px;
+
+	height: auto;
+
+	/* 💡額縁感（シャドウや角丸）をすべて消去して背景に馴染ませます */
+	border-radius: 0;
+	box-shadow: none;
+}
+
+/* 📝 フォーム本体（700pxの幅いっぱいにゆったり広げる） */
+.custom-contact__form {
+	width: 100%;
+	/* コンテナの幅（700px）いっぱいに広げます */
+	margin-top: 30px;
+	/* タイトルとフォームの間の心地よい隙間 */
+}
+
+
+
+/* 各入力欄の縦並び */
+.form-group {
+	margin-bottom: 10px;
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+
+.form-group label {
+	font-size: 14px;
+	font-weight: bold;
+	color: #5A544E;
+}
+
+.form-group label .required {
+	font-size: 11px;
+	color: #fff;
+	background-color: #9EC2C7;
+	padding: 2px 6px;
+	border-radius: 4px;
+	margin-left: 6px;
+	font-weight: normal;
+}
+
+.form-group input,
+.form-group textarea {
+	width: 100%;
+	padding: 10px 14px;
+	box-sizing: border-box;
+	border: 1px solid #D6CFC7;
+	background-color: #F1ECE4;
+	border-radius: 8px;
+	font-size: 14px;
+	color: #5A544E;
+	outline: none;
+	transition: all 0.3s ease;
+}
+
+.form-group textarea {
+	height: 150px;
+	resize: none;
+	/* ユーザーが自由に伸ばしてレイアウトが崩れるのを防ぐ */
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+	border-color: #9EC2C7;
+	background-color: #fff;
+	box-shadow: 0 0 8px rgba(158, 194, 199, 0.3);
+}
+
+/* 🔒 プライバシーポリシー */
+.form-policy {
+	background-color: rgba(241, 236, 228, 0.5);
+	padding: 10px 12px;
+	border-radius: 8px;
+	border: 1px dashed #D6CFC7;
+	margin-bottom: 12px;
+}
+
+.policy-text {
+	font-size: 12px;
+	color: #8A8178;
+	line-height: 1.6;
+	margin-bottom: 6px;
+}
+
+.policy-checkbox-label {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-size: 13px;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+/* 🚀 送信ボタン */
+.form-submit {
+	text-align: center;
+}
+
+/* 🚀 送信ボタン（コロンとした可愛いパステルカラー） */
+.submit-btn {
+	display: inline-block;
+	padding: 12px 60px;
+	border: none;
+	/* 固い印象の黒い枠線を消す */
+	color: #fff;
+	/* 文字の色を白にする */
+	background-color: #9EC2C7;
+	/* サイト共通の可愛い水色にする */
+	font-size: 16px;
+	font-weight: bold;
+	letter-spacing: 0.1em;
+	border-radius: 30px;
+	/* ★ここを大きくして、カプセル型の丸いボタンにする */
+	cursor: pointer;
+	box-shadow: 0 4px 10px rgba(158, 194, 199, 0.3);
+	/* ボタンの下にふわっと軽い影をつける */
+	transition: all 0.3s ease;
+	/* 変化をなめらかにする */
+}
+
+/* マウスを乗せたとき（ホバー）の演出 */
+.submit-btn:hover {
+	background-color: #BAD8DD;
+	/* さらに明るいパステル水色にふわっと変わる */
+	transform: translateY(-2px);
+	/* ボタンがほんの少し上にぴょこっと浮き上がる */
+	box-shadow: 0 6px 15px rgba(158, 194, 199, 0.4);
+	/* 浮き上がった分、影を少し濃くする */
+}
+
+/* ==========================================================================
+   📱 スマホ対応（画面幅 959px 以下）
+   ========================================================================== */
+
+@media screen and (max-width: 959px) {
+	.custom-contact-page {
+		padding-top: 40px;
+		padding-bottom: 180px;
+		/* スマホ用フッターの飛び出しに合わせる */
+	}
+
+	.custom-contact__container {
+
+		align-items: center;
+		gap: 40px;
+		padding: 0 20px;
+	}
+
+
+
+	.custom-contact__form {
+		width: 100%;
+	}
+
+	.custom-contact__illust img {
+		width: 80px;
+		/* スマホでは鳥を一回り小さくしてバランスを取る */
+	}
+}
