@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>えほんの部屋 | 凪のへや</title>
+	<meta name="description" content="凪が作った手作り絵本を紹介するページです。小さな物語の世界をお楽しみください。">
+	<link rel="icon" href="../images/illust/400_400/favicon_bird.png">
+	<!-- 一番上の階層にあるリセットと共通CSSを読み込む（ここでcommon.cssを確実に当てる） -->
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/common.css">
+
+	<!-- 絵本専用のCSS（picture_booksフォルダ内のcssフォルダにあるもの） -->
+	<link rel="stylesheet" href="css/picture_books.css">
+</head>
+
+<body>
+	<!-- 水色のふんわりカーソル用要素 -->
+	<div class="cursor"></div>
+	<div class="body-wrapper">
+		<!-- 🔥 ここはTOPと完全同じ -->
+		<div id="header"></div>
+		<main class="book-gallery">
+
+
+			<div class="works__wrapper">
+				<!-- パンくず -->
+				<nav class="breadcrumb">
+					<a href="../index.html">TOP</a>
+					<span>›</span>
+					<span>えほんの部屋</span>
+				</nav>
+
+				<!-- 見出し -->
+				<h2 class="works__title book-title">
+					ようこそ、えほんの部屋へ
+					<span class="section-sub">PICTURE BOOKS</span>
+				</h2>
+
+				<!-- イントロ部分 -->
+				<div class="section-intro">
+					<span class="tag-text">FUTURE</span>
+					<h3 class="book-intro-title">
+						手作りの絵本たち
+					</h3>
+					<p class="works__p">作った絵本を並べています。表紙をクリックして読んでみてください。</p>
+					<span class="tag-text" style="margin-top: 10px;">MY WORLD</span>
+				</div>
+			</div>
+
+			<!-- 【上段】本棚エリア -->
+			<section class="bookshelf-section works__wrapper">
+
+				<!-- 1段目 -->
+				<div class="shelf-row">
+					<div class="book-grid">
+						<!-- 1冊目の絵本（点線が消えてきれいに表示されます） -->
+						<a href="book01.html" class="book-item" data-book-id="book001">
+							<div class="book-cover-box" style="border: none; background: none; position: relative;">
+								<!-- ★ここが新しく追加した「読者に見える番号タグ」です -->
+								<span class="book-number">No.001</span>
+
+								<img src="images/ehon1/web_ehon1-0.png" alt="絵本『ずっとほしかったんだよね』の表紙">
+							</div>
+						</a>
+						<!-- 空の箱1つ目 -->
+						<div class="book-item empty-box"></div>
+						<!-- 空の箱2つ目 -->
+						<div class="book-item empty-box"></div>
+					</div>
+					<div class="shelf-board"></div>
+				</div>
+
+				<!-- 2段目 -->
+				<div class="shelf-row">
+					<div class="book-grid">
+						<div class="book-item empty-box"></div>
+						<div class="book-item empty-box"></div>
+						<div class="book-item empty-box"></div>
+					</div>
+					<div class="shelf-board"></div>
+				</div>
+
+				<!-- 3段目（一番下も同じ構造にします） -->
+				<div class="shelf-row">
+					<div class="book-grid">
+						<div class="book-item empty-box"></div>
+						<div class="book-item empty-box"></div>
+						<div class="book-item empty-box"></div>
+					</div>
+					<div class="shelf-board"></div>
+				</div>
+
+			</section>
+
+			<!-- 【下段】詳細エリア -->
+			<section class="book-detail-section works__wrapper">
+
+				<!-- 上のタイトルとデザインを揃えた見出し -->
+				<div class="detail-title-wrap">
+					<h3 class="works__title book-title detail-title">
+						本棚の作品をご紹介
+						<span class="section-sub">ABOUT THE BOOKS</span>
+					</h3>
+				</div>
+
+				<!-- ▼ ここを div から a に変更して、リンク先とスタイルを追加します -->
+				<a href="book01.html" class="book-detail-card">
+					<div class="book-detail-cover">
+						<div class="book-cover-box" style="border: none; background: none; position: relative;">
+							<!-- 読者に見える番号 -->
+							<span class="book-number">No.001</span>
+
+							<img src="images/ehon1/web_ehon1-0.png" alt="絵本『ずっとほしかったんだよね』の表紙">
+						</div>
+					</div>
+					<div class="book-detail-text">
+						<h4 class="book-detail-title">『ずっとほしかったんだよね』</h4>
+						<p class="works__p">
+							お友達が楽しそうにゲームをする姿を、少し離れたところから見つめている「ちいちゃん」。<br>
+							本当は一緒に遊びたいけれど、「負けると悔しいから」となかなか輪に入れずにいました。<br>
+
+							そんなある日のお誕生日。お部屋に置かれていたプレゼントの箱を開けると……？<br>
+							子どもの素直なもどかしさと、心があたたまる結末を描いた短編絵本です。<br>
+						</p>
+					</div>
+					<!-- ▼ 閉じタグも a に変更します -->
+				</a>
+			</section>
+
+		</main>
+	</div>
+
+	<!-- フッター -->
+	<div id="footer"></div>
+
+	<script src="../js/main.js"></script>
+
+</body>
+
+</html>
