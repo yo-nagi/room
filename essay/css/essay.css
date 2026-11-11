@@ -141,6 +141,25 @@
 }
 
 /* =========================
+   記事末尾のイラスト（追加・調整）
+========================= */
+/* 記事末尾のイラスト */
+.essay-ending-illustration {
+	text-align: center;
+	margin-top: 30px;
+}
+
+.essay-ending-illustration img {
+	max-width: 220px;
+	/* ←ここの数値を小さくすると、イラストが小さくなります（例：150px、200pxなどにお好みで変更してください） */
+	width: 100%;
+	/* 画面が狭いスマホなどでは、画面に合わせてさらに縮みます */
+	height: auto;
+	display: block;
+	margin: 0 auto;
+}
+
+/* =========================
    スマホ対応
 ========================= */
 @media screen and (max-width: 768px) {
