@@ -112,6 +112,59 @@
 	color: #A59C90;
 }
 
+/* =========================
+   ギャラリー下部のメッセージ
+========================= */
+
+.gallery-footer-message {
+	text-align: center;
+	margin: 100px auto 40px;
+	padding: 50px 20px;
+	/* 水面を思わせる、透明感のある淡いグラデーション */
+	background: linear-gradient(135deg, rgba(249, 246, 240, 0.8) 0%, rgba(230, 238, 240, 0.6) 100%);
+	border-radius: 50% 50% 16px 16px / 20px 20px 16px 16px;
+	/* 上部をふんわりアーチ状にする遊び心 */
+	border: 1px solid rgba(214, 207, 199, 0.5);
+	box-shadow: 0 15px 35px rgba(165, 175, 185, 0.15);
+	/* 水面に浮かぶような柔らかい影 */
+	color: #5A544E;
+	max-width: 600px;
+}
+
+.gallery-footer-message p {
+	font-size: 13px;
+	line-height: 2.3;
+	letter-spacing: 0.12em;
+}
+
+/* =========================
+   ギャラリー下部のメッセージ内ボタン（小さめ調整）
+========================= */
+
+.gallery-footer-message .gallery-mail-btn {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	width: auto;
+	margin-top: 20px;
+	padding: 10px 32px;
+
+	background-color: #fff;
+	border: 1px solid #9EC2C7;
+	border-radius: 40px;
+
+	color: #9EC2C7;
+	font-size: 11px;
+	font-family: "Albert Sans", sans-serif;
+	letter-spacing: 0.12em;
+	text-decoration: none;
+	transition: all 0.3s ease;
+}
+
+.gallery-footer-message .gallery-mail-btn:hover {
+	background-color: #9EC2C7;
+	color: #fff;
+}
 
 
 /* =========================
