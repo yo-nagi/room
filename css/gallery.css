@@ -357,3 +357,10 @@
 		text-shadow: none;
 	}
 }
+
+/* スマホなどの狭い画面（例: 768px以下）では、Coming Soonの枠を非表示にする */
+@media screen and (max-width: 768px) {
+	.illust-grid .item.coming-soon {
+		display: none;
+	}
+}
